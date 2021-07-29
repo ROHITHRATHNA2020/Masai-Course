@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/aquagym"/>
+
+    </HorizontalScrollView>
+
+
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="120dp">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/aquagym" />
+
+        <TextView
+            android:id="@+id/tvSportName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="AQUAMAN"
+            android:gravity="bottom"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_margin="5dp"/>
+
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
