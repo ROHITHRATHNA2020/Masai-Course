@@ -1,0 +1,2 @@
+rootProject.name = "StaicFragment"
+include ':app'
