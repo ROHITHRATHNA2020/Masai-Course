@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/etSearch"
+        android:layout_margin="40dp"
+        android:hint="Enter Username"
+        android:textAlignment="center"
+        android:padding="15sp"
+        android:textColorHint="#7cfc00"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="#7cfc00"/>
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/ic_baseline_search_24"
+        android:layout_marginLeft="45dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="316dp"
+        android:layout_height="582dp"
+        android:layout_below="@+id/etSearch"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="50dp" />
+
+</FrameLayout>
