@@ -1,20 +1,21 @@
 package com.example.recycleritemclicks;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.Display;
-import android.view.Menu;
-import android.widget.LinearLayout;
+
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ItemClickListeners {
 
     private RecyclerView recyclerView;
     ArrayList<Model> modelList;
+
+    private ItemClickListeners itemClickListeners;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setRecyclerView() {
-        Adapter adapter = new Adapter(modelList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        Adapter adapter = new Adapter(modelList,this);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
     }
@@ -48,5 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         recyclerView = findViewById(R.id.recyclerView);
+
+    }
+
+    @Override
+    public void onItemClicked(Model model) {
+        new AlertDialog.Builder(this)
+                .setTitle("Article Name is")
+                .setMessage(model.getText()).show();
+
     }
 }

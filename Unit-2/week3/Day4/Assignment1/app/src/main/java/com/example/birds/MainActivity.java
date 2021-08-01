@@ -2,6 +2,7 @@ package com.example.birds;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
     private void setRecyclerView() {
         BirdAdapter birdAdapter = new BirdAdapter(birdList,this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(this,4);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(birdAdapter);
 

@@ -12,15 +12,17 @@ import java.util.ArrayList;
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
     private ArrayList<Model> modelList;
+    private ItemClickListeners itemClickListeners;
 
-    public Adapter (ArrayList<Model> modelList) {
+    public Adapter (ArrayList<Model> modelList,ItemClickListeners itemClickListeners) {
         this.modelList = modelList;
+        this.itemClickListeners = itemClickListeners;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
-        return new ViewHolder(view);
+        return new ViewHolder(view,itemClickListeners);
     }
 
     @Override
