@@ -12,15 +12,17 @@ import java.util.ArrayList;
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalViewHolder> {
 
     private ArrayList<Animal> animalList;
+    private ItemClickListeners itemClickListeners;
 
-    public AnimalAdapter(ArrayList<Animal> animalList){
+    public AnimalAdapter(ArrayList<Animal> animalList,ItemClickListeners itemClickListeners){
         this.animalList = animalList;
+        this.itemClickListeners = itemClickListeners;
     }
 
     @Override
     public AnimalViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.animal_layout,parent,false);
-        return new AnimalViewHolder(view);
+        return new AnimalViewHolder(view,itemClickListeners);
     }
 
     @Override

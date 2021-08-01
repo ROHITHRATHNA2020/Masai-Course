@@ -1,5 +1,6 @@
 package com.example.animalapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -16,12 +17,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ItemClickListeners {
 
     private RecyclerView recyclerView;
-    private LinearLayout mll1;
-    private TextView mtvName;
-    private CardView mcd;
 
     ArrayList<Animal> animalList;
 
@@ -32,16 +30,11 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         buildAnimalList();
         setRecyclerView();
-       mcd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,mtvName.getText().toString(),Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 
     private void setRecyclerView() {
-        AnimalAdapter animalAdapter = new AnimalAdapter(animalList);
+        AnimalAdapter animalAdapter = new AnimalAdapter(animalList,this);
         GridLayoutManager linearLayoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(animalAdapter);
@@ -70,10 +63,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         recyclerView = findViewById(R.id.recyclerView);
-        mll1 = findViewById(R.id.ll1);
-        mtvName = findViewById(R.id.tvName);
-        mcd = findViewById(R.id.cd1);
     }
 
 
+    @Override
+    public void onItemClicked(Animal animal) {
+        new AlertDialog.Builder(this)
+                .setMessage(animal.getName()).show();
+
+    }
 }
