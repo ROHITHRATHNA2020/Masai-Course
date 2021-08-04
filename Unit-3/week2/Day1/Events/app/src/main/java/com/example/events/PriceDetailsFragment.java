@@ -19,7 +19,6 @@ public class PriceDetailsFragment extends Fragment {
     private EditText mCurrency;
     private EditText mPrice;
     private Button mbtnPreview;
-    private EventListener eventListener;
     private String title;
     private String description;
     private String StartDate;
@@ -38,7 +37,6 @@ public class PriceDetailsFragment extends Fragment {
             EndDate = getArguments().getString("endDate");
             startTime = getArguments().getString("startTime");
             endTime = getArguments().getString("endTime");
-
         }
     }
 
@@ -72,12 +70,4 @@ public class PriceDetailsFragment extends Fragment {
         });
 
     }
-
-    @Override
-    public void onAttach(@NonNull  Context context) {
-        super.onAttach(context);
-        eventListener = (EventListener) context;
-    }
-
-
 }

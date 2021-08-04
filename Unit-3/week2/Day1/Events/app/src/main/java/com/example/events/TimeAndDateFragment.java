@@ -21,6 +21,18 @@ public class TimeAndDateFragment extends Fragment {
     private EditText mEndTime;
     private Button mbtn;
     private EventListener eventListener;
+    private String eventTitle;
+    private String eventDesc;
+
+    @Override
+    public void onCreate(@Nullable  Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            eventTitle = getArguments().getString("title");
+            eventDesc = getArguments().getString("description");
+        }
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +44,7 @@ public class TimeAndDateFragment extends Fragment {
     public void onViewCreated(@NonNull  View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
+
     }
 
     @Override
@@ -46,6 +59,7 @@ public class TimeAndDateFragment extends Fragment {
     mStartTime = view.findViewById(R.id.etStartTime);
     mEndTime = view.findViewById(R.id.etEndTime);
     mbtn = view.findViewById(R.id.btnNext2);
+
     mbtn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -53,8 +67,13 @@ public class TimeAndDateFragment extends Fragment {
             String EndDate = mEndDate.getText().toString();
             String startTime = mStartTime.getText().toString();
             String endTime = mEndTime.getText().toString();
+            eventTitle = getArguments().getString("title");
+            eventDesc = getArguments().getString("description");
             Bundle bundle = new Bundle();
             bundle.putString("startDate",startDate);
+            bundle.putString("title",eventTitle);
+            bundle.putString("description",eventDesc);
+
             bundle.putString("endDate",EndDate);
             bundle.putString("startTime",startTime);
             bundle.putString("endTime",endTime);

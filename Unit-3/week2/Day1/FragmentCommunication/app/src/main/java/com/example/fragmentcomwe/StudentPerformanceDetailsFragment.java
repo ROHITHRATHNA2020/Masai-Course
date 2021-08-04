@@ -20,7 +20,6 @@ public class StudentPerformanceDetailsFragment extends Fragment {
     private Button mbtnPreview;
     private String name;
     private int age;
-
     @Override
     public void onCreate(@Nullable  Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,19 +28,16 @@ public class StudentPerformanceDetailsFragment extends Fragment {
             age = getArguments().getInt("age");
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_student_performance_details, container, false);
     }
-
     @Override
     public void onViewCreated(@NonNull  View view, @Nullable  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
     }
-
     private void initViews(View view) {
         metGrade = view.findViewById(R.id.etStudentGrade);
         metPercentage = view.findViewById(R.id.etStudentPer);

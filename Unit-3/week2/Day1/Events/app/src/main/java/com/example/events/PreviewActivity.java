@@ -1,9 +1,9 @@
 package com.example.events;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PreviewActivity extends AppCompatActivity {
 
@@ -26,7 +26,7 @@ public class PreviewActivity extends AppCompatActivity {
 
     private void getDatafromIntent() {
     Model model = (Model) getIntent().getSerializableExtra("model");
-    title.setText(model.getTitle());
+        title.setText(model.getTitle());
         description.setText(model.getDescription());
         startDate.setText(model.getStartDate());
         endDate.setText(model.getEndDate());

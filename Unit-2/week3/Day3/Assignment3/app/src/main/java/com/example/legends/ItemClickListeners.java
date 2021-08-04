@@ -1,2 +1,6 @@
-package com.example.legends;public interface ItemClickListeners {
+package com.example.legends;
+
+public interface ItemClickListeners {
+
+    void onItemClicked(Legends legends);
 }

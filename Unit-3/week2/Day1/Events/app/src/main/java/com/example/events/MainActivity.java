@@ -1,12 +1,10 @@
 package com.example.events;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 
 public class MainActivity extends AppCompatActivity implements EventListener {
 
