@@ -8,12 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private ArrayList<ResponseModel> responseModelList;
+    private List<ResponseModel> responseModelList;
 
-    public Adapter(ArrayList<ResponseModel> responseModelList){
+    public Adapter(List<ResponseModel> responseModelList){
         this.responseModelList = responseModelList;
     }
 

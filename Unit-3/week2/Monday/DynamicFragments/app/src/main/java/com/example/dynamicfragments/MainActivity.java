@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -17,46 +19,37 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mbtn;
-    private RecyclerView recyclerView;
-    private ArrayList<ResponseModel> responseModelList = new ArrayList<>();
 
     private FragmentManager fragmentManager;
+    private FrameLayout flContainer;
+    private LinearLayout linearlayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentManager = getSupportFragmentManager();
         initView();
-        replace();
-        setrecyclerView();
+       
 
-    }
-
-    private void setrecyclerView() {
-    Adapter adapter = new Adapter(responseModelList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
     }
 
     private void initView() {
-        recyclerView = findViewById(R.id.recyclerView);
-        mbtn = findViewById(R.id.btn);
-        mbtn.setOnClickListener(new View.OnClickListener() {
+        fragmentManager = getSupportFragmentManager();
+        linearlayout = findViewById(R.id.linearLayout);
+        flContainer = findViewById(R.id.flcontainer);
+        linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ApiService apiService = Network.getInstance(ApiService.class);
-                Call<ResponseModel>
+                replace();
             }
         });
 
     }
 
+
     public void replace(){
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         FragmentA fragmentA = new FragmentA();
-        transaction.replace(R.id.flContainer,fragmentA,"fragmentA").commit();
+        transaction.replace(R.id.flcontainer,fragmentA,"fragmentA").commit();
     }
 }

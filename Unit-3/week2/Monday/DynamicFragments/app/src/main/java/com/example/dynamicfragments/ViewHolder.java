@@ -27,9 +27,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setData(ResponseModel responseModel){
+        Glide.with(ivImage).load(responseModel.getImage()).into(ivImage);
+
         mtvText.setText(responseModel.getSubTitle());
         mtvDescription.setText(responseModel.getTitle());
-        Glide.with(ivImage).load(responseModel.getImage()).into(ivImage);
     }
 
 
